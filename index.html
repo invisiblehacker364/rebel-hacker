@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Wingo Prediction</title>
+  <script>
+    async function loadPrediction() {
+      const response = await fetch("https://wingosignal-5504a-default-rtdb.firebaseio.com/prediction.json");
+      const data = await response.json();
+      document.getElementById("signal").innerText = "Current Prediction: " + data;
+    }
+
+    setInterval(loadPrediction, 3000); // 3 sec mein update
+    window.onload = loadPrediction;
+  </script>
+</head>
+<body style="font-family: Arial; text-align: center; margin-top: 50px;">
+  <h1>🔥 Wingo Prediction Signal 🔥</h1>
+  <h2 id="signal">Loading...</h2>
+</body>
+</html>
